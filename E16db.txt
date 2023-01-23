@@ -1,0 +1,10 @@
+CREATE DATABASE "E16"
+
+CREATE TABLE task
+(
+    id integer NOT NULL DEFAULT nextval('task_id_seq'::regclass),
+    title character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    description character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    completed boolean NOT NULL DEFAULT false,
+    CONSTRAINT task_pkey PRIMARY KEY (id)
+)
