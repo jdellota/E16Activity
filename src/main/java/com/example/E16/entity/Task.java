@@ -1,7 +1,6 @@
 package com.example.E16.entity;
 
 import jakarta.persistence.*;
-import org.springframework.boot.context.properties.bind.DefaultValue;
 
 
 @Entity
@@ -12,7 +11,6 @@ public class Task {
     private Integer id;
     private String title;
     private String description;
-    //@Column(columnDefinition = "boolean default false")
     private Boolean completed;
 
     public Integer getId() {
@@ -37,10 +35,21 @@ public class Task {
     }
 
     public Boolean getCompleted() {
+
         return completed;
     }
 
     public void setCompleted(Boolean completed) {
         this.completed = completed;
+    }
+
+
+
+    public String convert(Boolean bool){
+        if(bool){
+            return "Completed";
+        } else {
+            return "Not completed";
+        }
     }
 }

@@ -3,11 +3,10 @@ package com.example.E16.service;
 import com.example.E16.entity.Task;
 import com.example.E16.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
+
 import java.util.List;
 
 @Service
@@ -46,4 +45,9 @@ public class TaskService {
         taskRepository.deleteById((long) id);
         return "Task deleted";
     }
+
+    public Task getTask(int id) {
+        return taskRepository.getReferenceById((long) id);
+    }
+
 }
