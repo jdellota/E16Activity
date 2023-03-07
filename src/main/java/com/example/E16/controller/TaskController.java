@@ -27,13 +27,13 @@ public class TaskController {
     {
         taskService.createTask(task.getTitle(), task.getDescription());
         model.addAttribute("tasks", taskService.displayTasks());
-        return "tasklist";
+        return "taskList";
     }
     @GetMapping("/delete/{id}")
     public String deleteTask(@PathVariable("id") int id, Model model){
         taskService.deleteTask(id);
         model.addAttribute("tasks", taskService.displayTasks());
-        return "tasklist";
+        return "taskList";
     }
 
     @GetMapping("/edittasklist/{id}")
@@ -46,6 +46,6 @@ public class TaskController {
     public String deleteTask(@PathVariable("id") int id, @ModelAttribute Task task, Model model){
         taskService.updateTask(id, task.getTitle(), task.getDescription(), task.getCompleted());
         model.addAttribute("tasks", taskService.displayTasks());
-        return "tasklist";
+        return "taskList";
     }
 }
